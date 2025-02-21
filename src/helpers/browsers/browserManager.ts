@@ -12,7 +12,7 @@ const headless: boolean | undefined =
 
 // Common launch options
 const options: LaunchOptions = {
-  headless, // Use the converted headless value
+  headless: true, // Enforce headless mode for GitHub Actions
 
 };
 
