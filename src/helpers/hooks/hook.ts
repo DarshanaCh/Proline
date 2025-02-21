@@ -71,7 +71,7 @@ After(async function ({ pickle, result }) {
     if (result?.status === Status.PASSED) {
       // Capture screenshot
       img = await pageFixure.page.screenshot({
-        path: "./test-results/reports/screenshots/${pickle.name}.png",
+        path: "./screenshots/${pickle.name}.png", // Corrected screenshot path to be relative to reports dir
         type: "png"
       });
 
@@ -102,7 +102,7 @@ After(async function ({ pickle, result }) {
         //console.log("videos attached",videoPath)
       }
 
-      const traceFileLink = `<a href="./trace/${pickle.id}.zip">Open Trace File</a>`; // Trying relative path again with leading dot
+      const traceFileLink = `<a href="../trace/${pickle.id}.zip">Open Trace File</a>`; // Corrected trace link path - go up one level again
       await this.attach(`Trace file: ${traceFileLink}`, 'text/html');
     }
   } catch (error) {
